@@ -1,0 +1,39 @@
+@function rem($pixels, $context: $font-size-base) {
+    @if (unitless($pixels)) {
+        $pixels: $pixels * 1px;
+    }
+
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+
+    @return $pixels / $context * 1rem;
+}
+
+@function em($pixels, $context: $font-size-base) {
+    @if (unitless($pixels)) {
+        $pixels: $pixels * 1px;
+    }
+
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+
+    @return $pixels / $context * 1em;
+}
+
+@function vh($pixels, $context) {
+    @if (unitless($pixels)) {
+        $pixels: $pixels * 1px;
+    }
+
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+
+    @return $pixels / $context * 1vh;
+}
+
+@function pixels($context, $percentages) {
+    @return $context * ($percentages / 100%);
+}

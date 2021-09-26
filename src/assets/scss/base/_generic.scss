@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+
+    -webkit-tap-highlight-color: transparent;
+
+    &::before,
+    &::after {
+        box-sizing: border-box;
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    font-family: $font-family;
+    font-size: 100%;
+
+    position: relative;
+    z-index: $z-index-html;
+
+    color: $color-text;
+}
+
+
+body {
+    @include text-normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    &:not([class]) {
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+img,
+svg {
+    vertical-align: middle;
+}
+
+img {
+    display: block;
+
+    max-width: 100%;
+}
+
+
+a,
+button,
+input,
+textarea {
+    &:focus {
+        outline: 0;
+    }
+}
+
+a {
+    text-decoration: none;
+}

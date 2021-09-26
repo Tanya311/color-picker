@@ -1,0 +1,40 @@
+@mixin hidden-element {
+    position: absolute;
+
+    clip: rect(0 0 0 0);
+
+    width: rem(1px);
+    height: rem(1px);
+    margin: rem(-1px);
+}
+
+
+// Resets
+@mixin list-reset {
+    padding-left: 0;
+
+    list-style: none;
+}
+
+@mixin resetting-vertical-indentation-of-first {
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+@mixin resetting-vertical-indentation-of-last {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Text
+@mixin text-normal($font-weight: null) {
+    $font-size: $font-size-normal;
+
+    font-size: rem($font-size);
+    @if $font-weight {
+        font-weight: $font-weight;
+    }
+    line-height: ($line-height-normal / $font-size);
+}
