@@ -1,0 +1,265 @@
+.colorpicker {
+    $button-size: 50px;
+
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    &--disabled & {
+        &__label  {
+            cursor: default;
+
+            opacity: .4;
+        }
+    }
+
+    &__button {
+        width: rem($button-size);
+        height: rem($button-size);
+
+        color: transparent;
+        border: rem(1px) solid $raven;
+        border-radius: 50%;
+
+        &:focus,
+        &:hover {
+            opacity: .7;
+            outline: none;
+            border-color: $raven;
+        }
+    }
+
+    &__label  {
+        $margin: 10px;
+
+        line-height: 1.35;
+
+        cursor: pointer;
+
+        &--left {
+            margin-right: rem($margin);
+        }
+
+        &--right {
+            margin-left: rem($margin);
+        }
+    }
+
+    &__popup {
+        $popup-width: 240px;
+        $popup-gutter: 20px;
+        $arrow-size: 15px;
+
+        position: absolute;
+        left: 0;
+
+        width: rem($popup-width);
+
+        box-shadow: $box-shadow-big;
+
+        &::before {
+            position: absolute;
+            left: calc(#{$button-size} / 2);
+
+            display: block;
+
+            width: rem($arrow-size);
+            height: rem($arrow-size);
+
+            content: "";
+            transform: translate(-50%, -50%) rotate(45deg);
+
+            background-color: $white;
+        }
+
+        &--bottom {
+            top: calc(100% + #{$popup-gutter});
+
+            &::before {
+                top: rem(-1px); // magic num
+            }
+        }
+
+        &--top {
+            bottom: calc(100% + #{$popup-gutter});
+
+            &::before {
+                top: calc(100% + 1px); // magic num
+            }
+        }
+
+        &-inner {
+            position: relative;
+
+            padding: rem(20px);
+        }
+
+        &-block {
+            margin-top: rem(20px);
+
+            @include resetting-vertical-indentation-of-first;
+        }
+    }
+
+    &__swatches {
+        $gutter: 5px;
+
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+
+            margin-top: rem(-$gutter);
+            margin-right: rem(-$gutter);
+            margin-left: rem(-$gutter);
+            margin-bottom: rem(-$gutter);
+        }
+
+        &-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: percentage(1 / 4);
+            height: rem(52.5px);
+
+            &--active {
+                border: rem(1px) solid $raven;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    &__swatch {
+        $size: 40px;
+
+        width: rem($size);
+        height: rem($size);
+
+        cursor: pointer;
+
+        border: 0;
+        border-radius: 50%;
+
+        &:disabled {
+            cursor: default;
+        }
+    }
+
+    &__palette {
+        $input-height: 40px;
+
+        &-actions {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        &-col {
+            &--control {
+                flex-grow: 1;
+
+                min-width: 0;
+            }
+
+            &--button {
+                flex-shrink: 0;
+
+                margin-left: rem(10px);
+            }
+        }
+
+        &-input {
+            height: rem($input-height);
+
+            color: transparent;
+
+            &:focus {
+                border-color: $raven;
+            }
+        }
+
+        &-button {
+            font-size: rem(15px);
+
+            padding-top: rem(8px);
+            padding-bottom: rem(8px);
+        }
+
+        &-popup {
+            position: absolute;
+            right: 0;
+            bottom: 65px; // magic num
+            left: 0;
+        }
+    }
+
+    .vc-chrome {
+        $padding: 20px;
+
+        box-sizing: border-box;
+        width: 100%;
+        padding: rem($padding);
+
+        border: 0;
+        border-radius: rem($border-radius);
+        box-shadow: $box-shadow;
+
+        &-saturation {
+            &-wrap {
+                border-radius: rem($border-radius);
+            }
+        }
+
+        &-hue {
+            &-wrap {
+                height: rem(30px);
+
+                border-radius: rem($border-radius);
+
+                .vc-hue-picker {
+                    width: rem(10px);
+                    height: rem(31px);
+
+                    border: 1px solid $raven;
+
+                    border-radius: rem($border-radius);
+                    box-shadow: none;
+                }
+            }
+        }
+
+        &-alpha {
+            &-wrap {
+                display: none;
+            }
+        }
+
+        &-body {
+            padding: rem(10px) 0 0 0;
+        }
+
+        &-fields {
+            &-wrap {
+                padding-top: rem(10px);
+            }
+        }
+
+        .vc-input {
+            &__input {
+                //font-size: rem($font-size-miniature);
+
+                height: rem(25px);
+
+                //color: $color-text;
+                //border: rem(1px) solid $color-control-border;
+                border-radius: rem($border-radius);
+                //background-color: $color-background;
+                box-shadow: none;
+            }
+
+            &__label {
+                margin-top: rem(10px);
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+.input {
+    font-weight: $font-weight-medium;
+    line-height: rem($input-height);
+
+    display: block;
+
+    width: 100%;
+    height: rem($input-height);
+    padding-right: rem(20px);
+    padding-left: rem(20px);
+
+    transition: color $transition-duration $transition-function,
+                border-color $transition-duration $transition-function,
+                background-color $transition-duration $transition-function;
+
+    color: $color-text;
+    border: rem(1px) solid $color-control-border;
+    border-radius: rem($border-radius);
+    background-color: $color-background;
+    box-shadow: none;
+
+    -webkit-appearance: none; // убирает внутренюю тень в safari
+
+    &:focus {
+        border-color: $raven;
+        outline: none;
+    }
+
+    &:disabled {
+        color: $blue-haze;
+        background-color: $raven;
+    }
+}

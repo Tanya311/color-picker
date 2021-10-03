@@ -5,9 +5,17 @@
 */
 // basic
 $mine-shaft: #333333;
+$black: #000000;
 $white: #ffffff;
+$raven: #767d89;
+$blue-haze: #c4c8db;
 
 $color-text: $mine-shaft;
+
+$color-background: $white;
+
+$color-border: rgba($blue-haze, .5);
+$color-control-border: $blue-haze;
 
 
 // Fonts
@@ -31,3 +39,22 @@ $line-height-normal: 24px;
 
 // Z-indexes
 $z-index-html: 1;
+
+
+// Radius
+$border-radius: 6px;
+
+
+// Transitions and Animations
+$transition-duration: 300ms;
+$transition-duration-fast: 100ms;
+$transition-function: ease-in-out;
+
+
+//Box-shadows
+$box-shadow: 0 0 rem(5px) rgba($black, .15);
+$box-shadow-big: rem(-4px) rem(-10px) rem(30px) rgba($black, .03),
+rem(4px) rem(10px) rem(30px) rgba($black, .03);
+
+
+$input-height: 50px;
